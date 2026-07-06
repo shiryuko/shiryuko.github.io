@@ -1,0 +1,21 @@
+---
+import GitHubIcon from './icons/GitHubIcon.astro';
+import LinkedInIcon from './icons/LinkedInIcon.astro';
+import type { SocialIconName } from '../config/site';
+
+interface Props {
+	name: SocialIconName;
+	class?: string;
+}
+
+const { name, class: className } = Astro.props;
+
+const icons = {
+	github: GitHubIcon,
+	linkedin: LinkedInIcon,
+} as const;
+
+const Icon = icons[name];
+---
+
+<Icon class={className} />

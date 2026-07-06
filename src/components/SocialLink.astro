@@ -1,0 +1,20 @@
+---
+import SocialIcon from './SocialIcon.astro';
+import type { SocialLink } from '../config/site';
+
+interface Props {
+	link: SocialLink;
+}
+
+const { link } = Astro.props;
+---
+
+<a
+	href={link.href}
+	target="_blank"
+	rel="noopener noreferrer"
+	aria-label={link.label}
+	class="text-neutral-400 transition-colors hover:text-red-500"
+>
+	<SocialIcon name={link.icon} />
+</a>
