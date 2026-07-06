@@ -1,15 +1,11 @@
 ---
+import { site } from '../config/site';
+
 interface Props {
 	title?: string;
 }
 
-const { title = 'Portfolio' } = Astro.props;
-
-const navItems = [
-	{ label: 'About', href: '/#about' },
-	{ label: 'Experience', href: '/#experience' },
-	{ label: 'Projects', href: '/#projects' },
-];
+const { title = site.name } = Astro.props;
 ---
 
 <header class="sticky top-0 z-50 border-b border-neutral-800 bg-neutral-950">
@@ -26,7 +22,7 @@ const navItems = [
 		<nav aria-label="Main navigation">
 			<ul class="m-0 flex list-none items-center gap-8 p-0 max-[480px]:gap-6">
 				{
-					navItems.map((item) => (
+					site.nav.map((item) => (
 						<li>
 							<a
 								href={item.href}

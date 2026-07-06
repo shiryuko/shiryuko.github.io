@@ -3,13 +3,15 @@ import Layout from '../layouts/Layout.astro';
 import AboutSection from '../components/AboutSection.astro';
 import ExperienceSection from '../components/ExperienceSection.astro';
 import ProjectsSection from '../components/ProjectsSection.astro';
+import { site } from '../config/site';
+import { about } from '../data/about';
 import { experience } from '../data/experience';
 import { projects } from '../data/projects';
 ---
 
-<Layout title="Portfolio">
+<Layout title={site.name}>
 	<main>
-		<AboutSection />
+		<AboutSection content={about} />
 		<ExperienceSection items={experience} />
 		<ProjectsSection projects={projects} />
 	</main>

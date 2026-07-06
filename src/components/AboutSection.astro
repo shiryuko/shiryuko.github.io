@@ -1,31 +1,33 @@
+---
+import type { AboutContent } from '../data/about';
+
+interface Props {
+	content: AboutContent;
+}
+
+const { content } = Astro.props;
+---
+
 <section id="about" class="mx-auto max-w-6xl px-6 py-24">
 	<div class="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
 		<div class="space-y-6">
 			<h2 class="text-4xl font-bold tracking-tight text-neutral-50 sm:text-5xl">
-				Hi, I'm a Frontend Developer
+				{content.heading}
 			</h2>
-			<p class="text-lg leading-relaxed text-neutral-400">
-				I build thoughtful, performant web experiences with a strong focus on
-				accessibility and clean architecture. Over the past few years I've worked
-				across agencies, startups, and personal projects — always trying to bridge
-				the gap between design intent and production-ready code.
-			</p>
-			<p class="text-lg leading-relaxed text-neutral-400">
-				My toolkit includes modern JavaScript frameworks, design systems, and
-				performance tooling. I'm especially interested in component-driven
-				development, static site generation, and creating interfaces that feel fast
-				and effortless to use. When I'm not coding, I contribute to open source and
-				experiment with new tools to stay sharp.
-			</p>
+			{
+				content.paragraphs.map((paragraph) => (
+					<p class="text-lg leading-relaxed text-neutral-400">{paragraph}</p>
+				))
+			}
 		</div>
 
 		<div class="flex justify-center lg:justify-end">
 			<div
 				class="flex aspect-square w-full max-w-sm items-center justify-center rounded-2xl border border-dashed border-neutral-700 bg-neutral-900 text-neutral-500"
 				role="img"
-				aria-label="Profile photo placeholder"
+				aria-label={content.photoAlt}
 			>
-				<span class="text-sm font-medium tracking-wide uppercase">Your photo</span>
+				<span class="text-sm font-medium tracking-wide uppercase">{content.photoPlaceholder}</span>
 			</div>
 		</div>
 	</div>

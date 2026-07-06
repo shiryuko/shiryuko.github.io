@@ -1,13 +1,14 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { site } from '../config/site';
 import '../styles/global.css';
 
 interface Props {
 	title?: string;
 }
 
-const { title = 'Portfolio' } = Astro.props;
+const { title = site.name } = Astro.props;
 ---
 
 <!doctype html>
@@ -22,7 +23,7 @@ const { title = 'Portfolio' } = Astro.props;
 	</head>
 	<body class="bg-neutral-950 font-sans text-neutral-50 antialiased">
 		<div class="animate-fade-in flex min-h-screen flex-col">
-			<Header title="Portfolio" />
+			<Header title={title} />
 			<slot />
 			<Footer />
 		</div>
