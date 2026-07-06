@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img" aria-label="Taskflow App cover">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0a0a0a"/>
+      <stop offset="100%" stop-color="#1e1b4b"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)"/>
+  <rect x="80" y="60" width="200" height="330" rx="12" fill="#262626"/>
+  <rect x="300" y="60" width="200" height="330" rx="12" fill="#262626"/>
+  <rect x="520" y="60" width="200" height="330" rx="12" fill="#262626"/>
+  <rect x="100" y="90" width="160" height="12" rx="3" fill="#ef4444"/>
+  <rect x="100" y="120" width="160" height="8" rx="2" fill="#404040"/>
+  <rect x="100" y="140" width="120" height="8" rx="2" fill="#404040"/>
+  <rect x="320" y="90" width="160" height="12" rx="3" fill="#525252"/>
+  <rect x="320" y="120" width="160" height="8" rx="2" fill="#404040"/>
+  <rect x="540" y="90" width="160" height="12" rx="3" fill="#525252"/>
+  <rect x="540" y="120" width="160" height="8" rx="2" fill="#404040"/>
+</svg>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img" aria-label="Design System Hub cover">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#171717"/>
+      <stop offset="100%" stop-color="#450a0a"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)"/>
+  <rect x="120" y="100" width="200" height="24" rx="4" fill="#525252"/>
+  <rect x="120" y="150" width="320" height="12" rx="3" fill="#404040"/>
+  <rect x="120" y="175" width="280" height="12" rx="3" fill="#404040"/>
+  <rect x="480" y="80" width="200" height="290" rx="12" fill="#262626" stroke="#ef4444" stroke-width="2"/>
+  <rect x="510" y="120" width="140" height="80" rx="6" fill="#404040"/>
+  <rect x="510" y="220" width="100" height="12" rx="3" fill="#525252"/>
+  <rect x="510" y="245" width="140" height="12" rx="3" fill="#525252"/>
+</svg>

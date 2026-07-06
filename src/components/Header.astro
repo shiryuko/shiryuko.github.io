@@ -1,0 +1,43 @@
+---
+interface Props {
+	title?: string;
+}
+
+const { title = 'Portfolio' } = Astro.props;
+
+const navItems = [
+	{ label: 'About', href: '/#about' },
+	{ label: 'Experience', href: '/#experience' },
+	{ label: 'Projects', href: '/#projects' },
+];
+---
+
+<header class="sticky top-0 z-50 border-b border-neutral-800 bg-neutral-950">
+	<div
+		class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4 max-[480px]:flex-col max-[480px]:gap-4 max-[480px]:px-4"
+	>
+		<a
+			href="/"
+			class="text-xl font-bold tracking-tight text-neutral-50 no-underline transition-colors hover:text-red-500"
+		>
+			{title}
+		</a>
+
+		<nav aria-label="Main navigation">
+			<ul class="m-0 flex list-none items-center gap-8 p-0 max-[480px]:gap-6">
+				{
+					navItems.map((item) => (
+						<li>
+							<a
+								href={item.href}
+								class="text-sm font-medium text-neutral-400 no-underline transition-colors hover:text-red-500"
+							>
+								{item.label}
+							</a>
+						</li>
+					))
+				}
+			</ul>
+		</nav>
+	</div>
+</header>

@@ -1,0 +1,16 @@
+---
+import Layout from '../layouts/Layout.astro';
+import AboutSection from '../components/AboutSection.astro';
+import ExperienceSection from '../components/ExperienceSection.astro';
+import ProjectsSection from '../components/ProjectsSection.astro';
+import { experience } from '../data/experience';
+import { projects } from '../data/projects';
+---
+
+<Layout title="Portfolio">
+	<main>
+		<AboutSection />
+		<ExperienceSection items={experience} />
+		<ProjectsSection projects={projects} />
+	</main>
+</Layout>

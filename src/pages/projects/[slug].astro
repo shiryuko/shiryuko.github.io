@@ -1,0 +1,48 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getProjectBySlug, projects } from '../../data/projects';
+
+export function getStaticPaths() {
+	return projects.map((project) => ({
+		params: { slug: project.slug },
+	}));
+}
+
+const { slug } = Astro.params;
+const project = getProjectBySlug(slug!);
+
+if (!project) {
+	return Astro.redirect('/');
+}
+---
+
+<Layout title={`${project.title} | Portfolio`}>
+	<article class="mx-auto max-w-3xl px-6 py-24">
+		<a
+			href="/#projects"
+			class="mb-8 inline-block text-sm font-medium text-neutral-400 no-underline transition-colors hover:text-red-500"
+		>
+			← Back to projects
+		</a>
+
+		<header class="mb-8 space-y-4">
+			<h1 class="text-4xl font-bold tracking-tight text-neutral-50">{project.title}</h1>
+
+			<ul class="m-0 flex list-none flex-wrap gap-2 p-0">
+				{
+					project.tags.map((tag) => (
+						<li class="rounded-full border border-neutral-700 px-3 py-1 text-xs font-medium text-neutral-400">
+							{tag}
+						</li>
+					))
+				}
+			</ul>
+		</header>
+
+		<div class="space-y-4 text-lg leading-relaxed text-neutral-400">
+			{
+				project.content.split('\n\n').map((paragraph) => <p>{paragraph}</p>)
+			}
+		</div>
+	</article>
+</Layout>

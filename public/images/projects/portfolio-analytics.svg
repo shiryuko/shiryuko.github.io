@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img" aria-label="Portfolio Analytics cover">
+  <defs>
+    <linearGradient id="bg" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#171717"/>
+      <stop offset="100%" stop-color="#14532d"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)"/>
+  <polyline points="100,320 200,260 300,280 400,180 500,200 600,120 700,150" fill="none" stroke="#ef4444" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="200" cy="260" r="6" fill="#ef4444"/>
+  <circle cx="400" cy="180" r="6" fill="#ef4444"/>
+  <circle cx="600" cy="120" r="6" fill="#ef4444"/>
+  <rect x="100" y="80" width="180" height="12" rx="3" fill="#525252"/>
+  <rect x="100" y="105" width="120" height="8" rx="2" fill="#404040"/>
+  <rect x="550" y="80" width="150" height="60" rx="8" fill="#262626" stroke="#404040"/>
+  <rect x="570" y="100" width="110" height="8" rx="2" fill="#ef4444" opacity="0.6"/>
+</svg>
