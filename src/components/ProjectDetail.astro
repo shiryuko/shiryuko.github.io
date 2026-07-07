@@ -1,5 +1,7 @@
 ---
-import type { Project } from '../data/projects';
+import ProjectGallery from './ProjectGallery.astro';
+import ProjectLinks from './ProjectLinks.astro';
+import { projectCategoryLabels, projectCategoryStyles, type Project } from '../data/projects';
 
 interface Props {
 	project: Project;
@@ -8,31 +10,50 @@ interface Props {
 const { project } = Astro.props;
 ---
 
-<article class="mx-auto max-w-3xl px-6 py-24">
+<article class="project-detail mx-auto max-w-3xl px-6 py-24">
 	<a
 		href="/#projects"
-		class="mb-8 inline-block text-sm font-medium text-neutral-400 no-underline transition-colors hover:text-red-500"
+		class="project-detail__back mb-8 inline-block text-sm font-medium text-neutral-400 no-underline transition-colors hover:text-red-500"
 	>
 		← Back to projects
 	</a>
 
-	<header class="mb-8 space-y-4">
-		<h1 class="text-4xl font-bold tracking-tight text-neutral-50">{project.title}</h1>
+	<div
+		class="project-detail__cover relative mb-8 overflow-hidden rounded-xl border border-neutral-800 bg-neutral-900"
+	>
+		<span
+			class:list={[
+				'absolute top-3 left-3 z-10 rounded-full px-2.5 py-1 text-xs font-semibold tracking-wide uppercase',
+				projectCategoryStyles[project.category],
+			]}
+		>
+			{projectCategoryLabels[project.category]}
+		</span>
 
-		<ul class="m-0 flex list-none flex-wrap gap-2 p-0">
-			{
-				project.tags.map((tag) => (
-					<li class="rounded-full border border-neutral-700 px-3 py-1 text-xs font-medium text-neutral-400">
-						{tag}
-					</li>
-				))
-			}
-		</ul>
-	</header>
+		<img
+			src={project.coverImage}
+			alt={`${project.title} cover`}
+			class="project-detail__cover-image aspect-video w-full object-cover"
+		/>
+	</div>
 
-	<div class="space-y-4 text-lg leading-relaxed text-neutral-400">
+	<ul class="project-detail__tags m-0 mb-8 flex list-none flex-wrap gap-2 p-0">
 		{
-			project.content.split('\n\n').map((paragraph) => <p>{paragraph}</p>)
+			project.tags.map((tag) => (
+				<li class="rounded-full border border-neutral-700 px-3 py-1 text-xs font-medium text-neutral-400">
+					{tag}
+				</li>
+			))
+		}
+	</ul>
+
+	{project.links && project.links.length > 0 && <ProjectLinks links={project.links} />}
+
+	<div class="project-detail__content mt-8 space-y-4 text-lg leading-relaxed text-neutral-400">
+		{
+			project.content.split('\n\n').map((paragraph) => <p class="m-0">{paragraph}</p>)
 		}
 	</div>
+
+	{project.gallery && project.gallery.length > 0 && <ProjectGallery images={project.gallery} />}
 </article>

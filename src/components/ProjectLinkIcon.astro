@@ -1,0 +1,24 @@
+---
+import ExternalLinkIcon from './icons/ExternalLinkIcon.astro';
+import GitHubIcon from './icons/GitHubIcon.astro';
+import YouTubeIcon from './icons/YouTubeIcon.astro';
+import type { ProjectLinkType } from '../data/projects';
+
+interface Props {
+	name: ProjectLinkType;
+	class?: string;
+}
+
+const { name, class: className } = Astro.props;
+
+const icons = {
+	github: GitHubIcon,
+	demo: ExternalLinkIcon,
+	youtube: YouTubeIcon,
+	external: ExternalLinkIcon,
+} as const;
+
+const Icon = icons[name];
+---
+
+<Icon class={className} />

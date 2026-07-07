@@ -1,0 +1,20 @@
+---
+import ProjectLinkIcon from './ProjectLinkIcon.astro';
+import type { ProjectLink } from '../data/projects';
+
+interface Props {
+	link: ProjectLink;
+}
+
+const { link } = Astro.props;
+---
+
+<a
+	href={link.href}
+	target="_blank"
+	rel="noopener noreferrer"
+	class="inline-flex items-center gap-2 rounded-full border border-neutral-700 px-4 py-2 text-sm font-medium text-neutral-300 no-underline transition-colors hover:border-red-500/50 hover:text-red-500"
+>
+	<ProjectLinkIcon name={link.type} class="size-4" />
+	{link.label}
+</a>

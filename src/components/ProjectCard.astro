@@ -1,17 +1,11 @@
 ---
-import { projectCategoryLabels, type Project } from '../data/projects';
+import { projectCategoryLabels, projectCategoryStyles, type Project } from '../data/projects';
 
 interface Props {
 	project: Project;
 }
 
 const { project } = Astro.props;
-
-const categoryStyles: Record<Project['category'], string> = {
-	professional: 'bg-red-500/90 text-white',
-	academic: 'bg-indigo-500/90 text-white',
-	personal: 'bg-emerald-500/90 text-white',
-};
 ---
 
 <a
@@ -22,7 +16,7 @@ const categoryStyles: Record<Project['category'], string> = {
 		<span
 			class:list={[
 				'absolute top-3 left-3 z-10 rounded-full px-2.5 py-1 text-xs font-semibold tracking-wide uppercase',
-				categoryStyles[project.category],
+				projectCategoryStyles[project.category],
 			]}
 		>
 			{projectCategoryLabels[project.category]}
