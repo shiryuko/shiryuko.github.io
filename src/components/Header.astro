@@ -1,11 +1,5 @@
 ---
 import { site } from '../config/site';
-
-interface Props {
-	title?: string;
-}
-
-const { title = site.name } = Astro.props;
 ---
 
 <header class="sticky top-0 z-50 border-b border-neutral-800 bg-neutral-950">
@@ -16,7 +10,7 @@ const { title = site.name } = Astro.props;
 			href="/"
 			class="text-xl font-bold tracking-tight text-neutral-50 no-underline transition-colors hover:text-red-500"
 		>
-			{title}
+			{site.name}
 		</a>
 
 		<nav aria-label="Main navigation">
