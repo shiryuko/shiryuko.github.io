@@ -23,6 +23,7 @@ export interface Project {
 	tags: string[];
 	content: string;
 	links?: ProjectLink[];
+	myWork: string[];
 	gallery?: ProjectGalleryImage[];
 }
 
@@ -40,19 +41,26 @@ export const projectCategoryStyles: Record<ProjectCategory, string> = {
 
 export const projects: Project[] = [
 	{
-		slug: 'design-system-hub',
-		title: 'Design System Hub',
+		slug: 'touch-and-brush',
+		title: 'Touch & Brush',
 		summary:
-			'A centralized documentation and component playground for a multi-product design system used across four applications.',
+			'A Nintendo DS homebrew game featuring custom gesture recognition and touchscreen-based gameplay.',
 		coverImage: '/images/projects/design-system-hub.svg',
-		category: 'professional',
-		tags: ['Astro', 'React', 'Storybook'],
+		category: 'academic',
+		tags: ['C++', 'Devkitpro'],
 		content:
-			'Design System Hub was built to solve fragmentation across product teams that each maintained slightly different UI patterns. The hub aggregates tokens, components, and usage guidelines in a single searchable interface.\n\nThe project includes live component previews, accessibility checklists, and versioned changelog entries. Teams can copy code snippets directly or browse Figma references linked to each component entry.',
+			'Touch & Brush is a mental agility homebrew game for the Nintendo DS, developed in C++ using the DevkitPro toolchain as my final degree project for a Bachelor\'s degree in Multimedia Engineering.\n\nThe game challenges players to draw specific patterns on the touchscreen to defeat enemies. Each level introduces new enemy types, each with unique behaviors and attack patterns, requiring players to quickly recognize and reproduce the correct gestures before being defeated.\n\nThis project allowed me to gain hands-on experience with the challenges of developing games for the Nintendo DS, including working within the hardware\'s technical constraints. I also designed and implemented my own custom pattern recognition algorithm to accurately identify the player\'s drawn gestures. In addition, all of the game\'s graphics, artwork, and animations were created entirely by me.',
 		links: [
-			{ type: 'github', label: 'GitHub', href: 'https://github.com/shiryuko' },
-			{ type: 'demo', label: 'Live demo', href: 'https://example.com/design-system-hub' },
-			{ type: 'youtube', label: 'Walkthrough', href: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ' },
+			{ type: 'github', label: 'GitHub', href: 'https://github.com/shiryuko/touch_and_brush' },
+			{ type: 'youtube', label: 'Gameplay', href: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ' },
+			{ type: 'external', label: 'Project report', href: 'https://rua.ua.es/entities/publication/b92d9ec4-edc1-4f8b-82f7-016480a4d176' },
+		],
+		myWork: [
+			'Developed the entire game in C++ using the DevkitPro toolchain.',
+			'Designed and implemented a custom gesture recognition algorithm to accurately identify player-drawn patterns.',
+			'Worked within the Nintendo DS hardware constraints, gaining hands-on experience with handheld game development.',
+			'Created all graphics, artwork, UI elements, and animations from scratch.',
+			'Designed and implemented the gameplay mechanics, enemy behaviors, and level progression.'
 		],
 		gallery: [
 			{
@@ -73,18 +81,21 @@ export const projects: Project[] = [
 		],
 	},
 	{
-		slug: 'taskflow-app',
-		title: 'Taskflow App',
+		slug: 'bubble-shooting-robots',
+		title: 'Bubble Shooting Robots',
 		summary:
-			'A minimalist task manager with drag-and-drop boards, keyboard shortcuts, and offline-first sync.',
+			'A fast-paced arcade shooter where players use a bubble cannon to capture and defeat enemies.',
 		coverImage: '/images/projects/taskflow-app.svg',
-		category: 'personal',
-		tags: ['TypeScript', 'IndexedDB', 'PWA'],
+		category: 'professional',
+		tags: ['Photoshop', 'Illustrator', 'Unity'],
 		content:
 			'Taskflow started as a personal productivity experiment and evolved into a fully functional PWA. Users can organize tasks in kanban columns, filter by priority, and work offline with changes synced when connectivity returns.\n\nKey technical decisions included using IndexedDB for local persistence, optimistic UI updates, and a custom hook layer that abstracts sync conflicts between tabs and devices.',
 		links: [
-			{ type: 'github', label: 'GitHub', href: 'https://github.com/shiryuko' },
-			{ type: 'demo', label: 'Live demo', href: 'https://example.com/taskflow' },
+			{ type: 'external', label: 'Play Store', href: 'https://play.google.com/store/apps/details?id=com.baviux.bubblerobots' },
+			{ type: 'external', label: 'Apple Store', href: 'https://apps.apple.com/es/app/bubble-shooting-robots/id1576352005' },
+		],
+		myWork: [
+			'Placeholder'
 		],
 		gallery: [
 			{
@@ -113,6 +124,9 @@ export const projects: Project[] = [
 			{ type: 'github', label: 'GitHub', href: 'https://github.com/shiryuko' },
 			{ type: 'demo', label: 'Live demo', href: 'https://example.com/portfolio-analytics' },
 			{ type: 'external', label: 'Case study', href: 'https://example.com/case-study' },
+		],
+		myWork: [
+			'Placeholder'
 		],
 		gallery: [
 			{

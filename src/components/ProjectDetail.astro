@@ -68,5 +68,27 @@ const { project } = Astro.props;
 		}
 	</div>
 
+	<div class="project-detail__content mt-8 space-y-4 text-lg leading-relaxed text-neutral-400">
+		<h2 class="project-mywork__title">My work</h2>
+		<ul class="project-myworks__list">
+		{
+			project.myWork.map((mywork) => (
+				<li class="project-mywork__item">{mywork}</li>
+			))
+		}
+	</ul>
+	</div>
+
 	{project.gallery && project.gallery.length > 0 && <ProjectGallery images={project.gallery} />}
 </article>
+
+<style>
+	.project-mywork__title {
+		margin: 0 0 0.75rem;
+		font-size: 0.75rem;
+		font-weight: 600;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
+		color: var(--color-neutral-500);
+	}
+</style>
