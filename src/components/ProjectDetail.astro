@@ -2,6 +2,7 @@
 import ProjectGallery from './ProjectGallery.astro';
 import ProjectLinks from './ProjectLinks.astro';
 import { projectCategoryLabels, projectCategoryStyles, type Project } from '../data/projects';
+import { formatRichText } from '../utils/richText';
 
 interface Props {
 	project: Project;
@@ -64,7 +65,9 @@ const { project } = Astro.props;
 
 	<div class="project-detail__content mt-8 space-y-4 text-lg leading-relaxed text-neutral-400">
 		{
-			project.content.split('\n\n').map((paragraph) => <p class="m-0">{paragraph}</p>)
+			project.content
+				.split('\n\n')
+				.map((paragraph) => <p class="m-0" set:html={formatRichText(paragraph)} />)
 		}
 	</div>
 
@@ -73,7 +76,7 @@ const { project } = Astro.props;
 		<ul class="project-myworks__list">
 		{
 			project.myWork.map((mywork) => (
-				<li class="project-mywork__item">{mywork}</li>
+				<li class="project-mywork__item" set:html={formatRichText(mywork)} />
 			))
 		}
 	</ul>
@@ -90,5 +93,9 @@ const { project } = Astro.props;
 		letter-spacing: 0.05em;
 		text-transform: uppercase;
 		color: var(--color-neutral-500);
+	}
+
+	.project-myworks__list {
+		list-style-type: disc;
 	}
 </style>

@@ -1,5 +1,6 @@
 ---
 import type { AboutContent } from '../data/about';
+import { formatRichText } from '../utils/richText';
 
 interface Props {
 	content: AboutContent;
@@ -16,7 +17,7 @@ const { content } = Astro.props;
 			</h2>
 			{
 				content.paragraphs.map((paragraph) => (
-					<p class="text-lg leading-relaxed text-neutral-400">{paragraph}</p>
+					<p class="text-lg leading-relaxed text-neutral-400" set:html={formatRichText(paragraph)} />
 				))
 			}
 		</div>
