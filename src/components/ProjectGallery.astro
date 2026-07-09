@@ -9,13 +9,21 @@ const { images } = Astro.props;
 const galleryId = `gallery-${Math.random().toString(36).slice(2, 9)}`;
 ---
 
-<section class="project-gallery" aria-label="Project gallery" data-gallery={galleryId}>
-	<h2 class="project-gallery__title">Gallery</h2>
+<section
+	class="project-gallery mt-12"
+	aria-label="Project gallery"
+	data-gallery={galleryId}
+>
+	<h2
+		class="project-gallery__title mb-4 text-xs font-semibold tracking-[0.05em] uppercase text-neutral-500"
+	>
+		Gallery
+	</h2>
 
-	<div class="project-gallery__viewport">
+	<div class="project-gallery__viewport relative">
 		<button
 			type="button"
-			class="project-gallery__control project-gallery__control--prev"
+			class="project-gallery__control project-gallery__control--prev absolute left-0 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border border-neutral-700 bg-neutral-950/85 text-neutral-300 transition-colors duration-200 hover:border-red-500/50 hover:text-red-500"
 			aria-label="Previous image"
 			data-gallery-prev
 		>
@@ -34,18 +42,25 @@ const galleryId = `gallery-${Math.random().toString(36).slice(2, 9)}`;
 			</svg>
 		</button>
 
-		<div class="project-gallery__track" data-gallery-track tabindex="0">
+		<div
+			class="project-gallery__track flex gap-4 overflow-x-auto py-1 px-[2.75rem] [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden scroll-smooth motion-reduce:scroll-auto snap-x snap-mandatory"
+			data-gallery-track
+			tabindex="0"
+		>
 			{
 				images.map((image, index) => (
-					<figure class="project-gallery__slide" data-gallery-slide={index}>
+					<figure
+						class="project-gallery__slide flex-[0_0_min(100%,36rem)] snap-center"
+						data-gallery-slide={index}
+					>
 						<img
 							src={image.src}
 							alt={image.alt}
-							class="project-gallery__image"
+							class="project-gallery__image block aspect-[16/9] w-full rounded-xl border border-neutral-800 bg-neutral-900 object-cover"
 							loading="lazy"
 						/>
 						{image.caption && (
-							<figcaption class="project-gallery__caption">{image.caption}</figcaption>
+							<figcaption class="project-gallery__caption mt-3 text-center text-sm text-neutral-400">{image.caption}</figcaption>
 						)}
 					</figure>
 				))
@@ -54,7 +69,7 @@ const galleryId = `gallery-${Math.random().toString(36).slice(2, 9)}`;
 
 		<button
 			type="button"
-			class="project-gallery__control project-gallery__control--next"
+			class="project-gallery__control project-gallery__control--next absolute right-0 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full border border-neutral-700 bg-neutral-950/85 text-neutral-300 transition-colors duration-200 hover:border-red-500/50 hover:text-red-500"
 			aria-label="Next image"
 			data-gallery-next
 		>
@@ -74,12 +89,12 @@ const galleryId = `gallery-${Math.random().toString(36).slice(2, 9)}`;
 		</button>
 	</div>
 
-	<div class="project-gallery__dots" data-gallery-dots>
+	<div class="project-gallery__dots mt-4 flex justify-center gap-2" data-gallery-dots>
 		{
 			images.map((image, index) => (
 				<button
 					type="button"
-					class="project-gallery__dot"
+					class="project-gallery__dot w-2 h-2 border-0 rounded-full bg-neutral-700 cursor-pointer transition-colors duration-200"
 					aria-label={`Go to image ${index + 1}: ${image.alt}`}
 					data-gallery-dot={index}
 				/>
@@ -102,7 +117,9 @@ const galleryId = `gallery-${Math.random().toString(36).slice(2, 9)}`;
 
 		const updateDots = () => {
 			dots.forEach((dot, index) => {
-				dot.classList.toggle('project-gallery__dot--active', index === activeIndex);
+				const isActive = index === activeIndex;
+				dot.classList.toggle('bg-red-500', isActive);
+				dot.classList.toggle('bg-neutral-700', !isActive);
 			});
 		};
 
@@ -173,118 +190,3 @@ const galleryId = `gallery-${Math.random().toString(36).slice(2, 9)}`;
 	document.querySelectorAll<HTMLElement>('[data-gallery]').forEach(initGallery);
 </script>
 
-<style>
-	.project-gallery {
-		margin-top: 3rem;
-	}
-
-	.project-gallery__title {
-		margin: 0 0 1rem;
-		font-size: 0.75rem;
-		font-weight: 600;
-		letter-spacing: 0.05em;
-		text-transform: uppercase;
-		color: var(--color-neutral-500);
-	}
-
-	.project-gallery__viewport {
-		position: relative;
-	}
-
-	.project-gallery__track {
-		display: flex;
-		gap: 1rem;
-		overflow-x: auto;
-		scroll-snap-type: x mandatory;
-		scroll-behavior: smooth;
-		scrollbar-width: none;
-		padding: 0.25rem 2.75rem;
-	}
-
-	.project-gallery__track::-webkit-scrollbar {
-		display: none;
-	}
-
-	.project-gallery__slide {
-		flex: 0 0 min(100%, 36rem);
-		margin: 0;
-		scroll-snap-align: center;
-	}
-
-	.project-gallery__image {
-		display: block;
-		width: 100%;
-		aspect-ratio: 16 / 9;
-		border-radius: 0.75rem;
-		border: 1px solid var(--color-neutral-800);
-		background-color: var(--color-neutral-900);
-		object-fit: cover;
-	}
-
-	.project-gallery__caption {
-		margin-top: 0.75rem;
-		text-align: center;
-		font-size: 0.875rem;
-		color: var(--color-neutral-400);
-	}
-
-	.project-gallery__control {
-		position: absolute;
-		top: 50%;
-		z-index: 1;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: 2.5rem;
-		height: 2.5rem;
-		border: 1px solid var(--color-neutral-700);
-		border-radius: 9999px;
-		background-color: color-mix(in srgb, var(--color-neutral-950) 85%, transparent);
-		color: var(--color-neutral-300);
-		cursor: pointer;
-		transform: translateY(-50%);
-		transition:
-			border-color 0.2s ease,
-			color 0.2s ease;
-	}
-
-	.project-gallery__control:hover {
-		border-color: color-mix(in srgb, var(--color-red-500) 50%, transparent);
-		color: var(--color-red-500);
-	}
-
-	.project-gallery__control--prev {
-		left: 0;
-	}
-
-	.project-gallery__control--next {
-		right: 0;
-	}
-
-	.project-gallery__dots {
-		display: flex;
-		justify-content: center;
-		gap: 0.5rem;
-		margin-top: 1rem;
-	}
-
-	.project-gallery__dot {
-		width: 0.5rem;
-		height: 0.5rem;
-		border: 0;
-		border-radius: 9999px;
-		background-color: var(--color-neutral-700);
-		cursor: pointer;
-		transition: background-color 0.2s ease;
-	}
-
-	.project-gallery__dot--active {
-		background-color: var(--color-red-500);
-	}
-
-	@media (prefers-reduced-motion: reduce) {
-		.project-gallery__track {
-			scroll-behavior: auto;
-		}
-	}
-</style>
