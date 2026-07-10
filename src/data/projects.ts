@@ -1,6 +1,6 @@
 export type ProjectCategory = 'professional' | 'academic' | 'personal';
 
-export type ProjectLinkType = 'github' | 'demo' | 'youtube' | 'external';
+export type ProjectLinkType = 'github' | 'youtube' | 'external';
 
 export interface ProjectLink {
 	type: ProjectLinkType;
@@ -85,7 +85,7 @@ export const projects: Project[] = [
 		title: 'Bubble Shooting Robots',
 		summary:
 			'Creation of an entire visual identity for a casual arcade mobile game.',
-		coverImage: '/images/projects/taskflow-app.svg',
+		coverImage: '/images/projects/bsr-banner.png',
 		category: 'professional',
 		tags: ['Unity','Photoshop', 'Illustrator'],
 		content:
@@ -105,14 +105,19 @@ export const projects: Project[] = [
 		],
 		gallery: [
 			{
-				src: '/images/projects/taskflow-app.svg',
-				alt: 'Taskflow kanban board',
-				caption: 'Kanban board view',
+				src: '/images/projects/bsr-g1.png',
+				alt: 'Game screenshots',
+				caption: 'Game screenshots',
 			},
 			{
-				src: '/images/projects/taskflow-app.svg',
-				alt: 'Taskflow task detail panel',
-				caption: 'Task detail panel',
+				src: '/images/projects/bsr-g2.png',
+				alt: 'Game icons design',
+				caption: 'Game icons design',
+			},
+			{
+				src: '/images/projects/bsr-g3.png',
+				alt: 'Game screenshots',
+				caption: 'Game screenshots',
 			},
 		],
 	},
