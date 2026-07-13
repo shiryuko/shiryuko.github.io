@@ -1,5 +1,6 @@
 ---
 import type { ExperienceItem } from '../data/experience';
+import { formatRichText } from '../utils/richText';
 
 interface Props {
 	items: ExperienceItem[];
@@ -48,7 +49,7 @@ const { items } = Astro.props;
 								<h4 class="mb-2 text-xs font-semibold tracking-wider text-neutral-500 uppercase">
 									My work
 								</h4>
-								<p class="text-sm leading-relaxed text-neutral-300">{item.myWork}</p>
+								<p class="text-sm leading-relaxed text-neutral-300" set:html={formatRichText(item.myWork)}/>
 							</div>
 						</article>
 					</li>

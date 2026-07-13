@@ -10,31 +10,31 @@ export const experience: ExperienceItem[] = [
 		name: 'Systems, Servers & Solutions - Project manager',
 		duration: 'Jan 2023 — Present',
 		description:
-			'Full-service digital agency focused on building scalable web products for startups and mid-size companies. The team works across design systems, frontend architecture, and performance optimization for high-traffic marketing sites.',
+			'IT Consulting company developing real-time 3D browser-based digital twin applications for terminal logistics companies, powered by live telemetry data to improve real-world operational efficiency.',
 		myWork:
-			'Led frontend development for three client platforms, introduced a component library in React, and reduced average page load time by 35% through code splitting and image optimization.',
+			'Coordinated the project from deployment to delivery, using **Confluence** for functionality documentation, **managing development teams**, **client meetings**, **budgets**, **Jira** support processes, and technical documentation to ensure successful project execution. Created and maintained Test and Production server environments, and **deployed applications** using custom tools to ensure reliable project delivery.',
 	},{
 		name: 'Systems, Servers & Solutions - Frontend developer',
-		duration: 'Aug 2020 — Present',
+		duration: 'Aug 2020 — Jan 2023',
 		description:
-			'Full-service digital agency focused on building scalable web products for startups and mid-size companies. The team works across design systems, frontend architecture, and performance optimization for high-traffic marketing sites.',
+			'IT Consulting company developing real-time 3D browser-based digital twin applications for terminal logistics companies, powered by live telemetry data to improve real-world operational efficiency.',
 		myWork:
-			'Led frontend development for three client platforms, introduced a component library in React, and reduced average page load time by 35% through code splitting and image optimization.',
+			'Developed and maintained frontend applications using **HTML**, **CSS**, **Unity**, and **WebGL**. Collaborated on **bug fixing** across the frontend and backend (**Java**), performed SQL queries for debugging and testing, and worked with **Git** for version control in an agile development environment.',
 	},
 	{
 		name: 'CPCRetroDev - Staff member',
-		duration: '2019 — 2024',
+		duration: '2019 — 2023',
 		description:
-			'',
+			'Yearly game creation contest of the University of Alicante for Amstrad CPC 464 development.',
 		myWork:
 			'Designed and elaborated posters and cassette covers for the event and competition. Created assets for social media and website. Designed thumbnails, certificates and promotional material.',
 	},
 	{
 		name: 'Baviux - Game artist intern',
-		duration: '2018 — 2019',
+		duration: 'Nov 2019 — Feb 2020',
 		description:
-			'',
+			'Game development studio focused on creating casual mobile games.',
 		myWork:
-			'Delivered five client websites end-to-end, set up CI/CD pipelines for static deployments, and published two open-source UI kits that accumulated 500+ GitHub stars combined.',
+			'Created the entire visual identity for a game, including logos, characters, enemies, backgrounds and animations using **Adobe Photoshop and Illustrator**. Prepared every asset to be integrated into **Unity** game engine.',
 	},
 ];
