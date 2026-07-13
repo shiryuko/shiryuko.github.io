@@ -1,5 +1,5 @@
 export const site = {
-	name: 'Portfolio',
+	name: 'shiryuko',
 	nav: [
 		{ label: 'About', href: '/#about' },
 		{ label: 'Experience', href: '/#experience' },
@@ -7,7 +7,7 @@ export const site = {
 	],
 	social: [
 		{ label: 'GitHub', href: 'https://github.com/shiryuko', icon: 'github' },
-		{ label: 'LinkedIn', href: 'https://google.com', icon: 'linkedin' },
+		{ label: 'LinkedIn', href: 'https://www.linkedin.com/in/carla-macia-diez-246746194', icon: 'linkedin' },
 	],
 } as const;
 

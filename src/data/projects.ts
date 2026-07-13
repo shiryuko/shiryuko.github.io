@@ -52,7 +52,7 @@ export const projects: Project[] = [
 			'Touch & Brush is a **mental agility homebrew game** for the **Nintendo DS**, developed in C++ using the DevkitPro toolchain as my **final degree project for a Bachelor\'s degree in Multimedia Engineering**.\n\nThe game challenges players to draw specific patterns on the touchscreen to defeat enemies. Each level introduces new enemy types, each with unique behaviors and attack patterns, requiring players to quickly recognize and reproduce the correct gestures before being defeated.',
 		links: [
 			{ type: 'github', label: 'GitHub', href: 'https://github.com/shiryuko/touch_and_brush' },
-			{ type: 'youtube', label: 'Gameplay', href: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ' },
+			{ type: 'youtube', label: 'Gameplay', href: 'https://www.youtube.com/watch?v=p4U7YUK5S3Y' },
 			{ type: 'external', label: 'Project report', href: 'https://rua.ua.es/entities/publication/b92d9ec4-edc1-4f8b-82f7-016480a4d176' },
 		],
 		myWork: [
