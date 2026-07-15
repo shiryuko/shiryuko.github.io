@@ -45,7 +45,7 @@ export const projects: Project[] = [
 		title: 'Touch & Brush',
 		summary:
 			'A Nintendo DS homebrew game featuring custom gesture recognition and touchscreen-based gameplay.',
-		coverImage: '/images/projects/design-system-hub.svg',
+		coverImage: '/images/projects/tb-banner.png',
 		category: 'academic',
 		tags: ['C++', 'Devkitpro'],
 		content:
@@ -64,19 +64,19 @@ export const projects: Project[] = [
 		],
 		gallery: [
 			{
-				src: '/images/projects/design-system-hub.svg',
-				alt: 'Design System Hub component overview',
-				caption: 'Component library overview',
+				src: '/images/projects/tb-g1.png',
+				alt: 'Game screenshots',
+				caption: 'Game screenshots',
 			},
 			{
-				src: '/images/projects/design-system-hub.svg',
-				alt: 'Design System Hub documentation layout',
-				caption: 'Documentation layout',
+				src: '/images/projects/tb-g2.png',
+				alt: 'Game screenshot & Pattern recognition demo',
+				caption: 'Game screenshot & Pattern recognition demo',
 			},
 			{
-				src: '/images/projects/design-system-hub.svg',
-				alt: 'Design System Hub token explorer',
-				caption: 'Design token explorer',
+				src: '/images/projects/tb-g3.png',
+				alt: 'Game running on a real Nintendo DS',
+				caption: 'Game running on a real Nintendo DS',
 			},
 		],
 	},
@@ -145,19 +145,19 @@ export const projects: Project[] = [
 		],
 		gallery: [
 			{
-				src: '/images/projects/portfolio-analytics.svg',
-				alt: 'Portfolio Analytics dashboard overview',
-				caption: 'Analytics dashboard',
+				src: '/images/projects/frosty-g1.png',
+				alt: 'Game screenshots',
+				caption: 'Game screenshots',
 			},
 			{
-				src: '/images/projects/portfolio-analytics.svg',
-				alt: 'Portfolio Analytics visitor heatmap',
-				caption: 'Visitor heatmap',
+				src: '/images/projects/frosty-g1.png',
+				alt: 'Game screenshots',
+				caption: 'Game screenshots',
 			},
 			{
-				src: '/images/projects/portfolio-analytics.svg',
-				alt: 'Portfolio Analytics referral breakdown',
-				caption: 'Referral breakdown',
+				src: '/images/projects/frosty-g3.png',
+				alt: '3D models for the game',
+				caption: '3D models for the game',
 			},
 		],
 	},
@@ -166,7 +166,7 @@ export const projects: Project[] = [
 		title: 'Redsea',
 		summary:
 			'Retro single-player shoot \'em up game developed fully in Assembly for Amstrad CPC.',
-		coverImage: '/images/projects/portfolio-analytics.svg',
+		coverImage: '/images/projects/redsea-banner.png',
 		category: 'academic',
 		tags: ['Assembly', 'CPCTelera'],
 		content:
@@ -184,24 +184,15 @@ export const projects: Project[] = [
 		],
 		gallery: [
 			{
-				src: '/images/projects/portfolio-analytics.svg',
-				alt: 'Portfolio Analytics dashboard overview',
-				caption: 'Analytics dashboard',
+				src: '/images/projects/redsea-g1.png',
+				alt: 'Game screenshots',
+				caption: 'Game screenshots',
 			},
 			{
-				src: '/images/projects/portfolio-analytics.svg',
-				alt: 'Portfolio Analytics visitor heatmap',
-				caption: 'Visitor heatmap',
-			},
-			{
-				src: '/images/projects/portfolio-analytics.svg',
-				alt: 'Portfolio Analytics referral breakdown',
-				caption: 'Referral breakdown',
+				src: '/images/projects/redsea-g2.png',
+				alt: 'Game screenshots',
+				caption: 'Game screenshots',
 			},
 		],
 	},
 ];
-
-export function getProjectBySlug(slug: string): Project | undefined {
-	return projects.find((project) => project.slug === slug);
-}

@@ -1,5 +1,8 @@
 export const site = {
 	name: 'shiryuko',
+	title: 'Carla\'s portfolio',
+	description: 'My works as a Multimedia Engineer.',
+	url: 'https://shiryuko.github.io',
 	nav: [
 		{ label: 'About', href: '/#about' },
 		{ label: 'Experience', href: '/#experience' },
