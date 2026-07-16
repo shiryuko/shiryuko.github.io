@@ -126,7 +126,7 @@ export const projects: Project[] = [
 		title: 'Frostyland',
 		summary:
 			'RPG action-adventure game developed as part of an PBL initiative with custom 3D Engine.',
-		coverImage: '/images/projects/portfolio-analytics.svg',
+		coverImage: '/images/projects/frosty-banner.png',
 		category: 'academic',
 		tags: ['C++', 'GLSL', 'Blender', 'Photoshop', 'After Effects', 'Scrum'],
 		content:
