@@ -150,7 +150,7 @@ export const projects: Project[] = [
 				caption: 'Game screenshots',
 			},
 			{
-				src: '/images/projects/frosty-g1.png',
+				src: '/images/projects/frosty-g2.png',
 				alt: 'Game screenshots',
 				caption: 'Game screenshots',
 			},
