@@ -22,14 +22,49 @@ const { content } = Astro.props;
 			}
 		</div>
 
-		<div class="flex justify-center lg:justify-end">
-			<div
-				class="flex aspect-square w-full max-w-sm items-center justify-center rounded-2xl border border-dashed border-neutral-700 bg-neutral-900 text-neutral-500"
-				role="img"
-				aria-label={content.photoAlt}
-			>
-				<span class="text-sm font-medium tracking-wide uppercase">{content.photoPlaceholder}</span>
-			</div>
+		<div class="w-full grid place-items-center">
+			<img src={content.photoUrl[0]} class="col-start-1 row-start-1 z-0" />
+			<img id="heroEyes" src={content.photoUrl[1]} class="col-start-1 row-start-1 transition-transform duration-75 z-10" />
+			<img src={content.photoUrl[2]} class="col-start-1 row-start-1 z-20" />
 		</div>
 	</div>
 </section>
+
+<script>
+	const eyes = document.getElementById("heroEyes");
+	const MAX_OFFSET = 10;
+	const DEAD_ZONE = 10;
+
+	let currentX = 0;
+	let currentY = 0;
+
+	window.addEventListener("mousemove", (e) => {
+		const rect = eyes.getBoundingClientRect();
+
+		const imgCenterX = rect.left + rect.width / 2;
+		const imgCenterY = rect.top + rect.height * 0.8;
+
+		// Vector desde los ojos hasta el cursor
+		const dx = e.clientX - imgCenterX;
+		const dy = e.clientY - imgCenterY;
+
+		const distance = Math.sqrt(dx * dx + dy * dy);
+
+		const nx = distance ? dx / distance : 0;
+		const ny = distance ? dy / distance : 0;
+
+		const offsetX = nx * MAX_OFFSET;
+		const offsetY = ny * MAX_OFFSET;
+
+		if (distance < DEAD_ZONE) {
+			offsetX = 0;
+			offsetY = 0;
+		}
+
+		currentX += (offsetX - currentX) * 0.2;
+		currentY += (offsetY - currentY) * 0.2;
+
+		eyes.style.transform = `translate(${currentX}px, ${currentY}px)`;
+
+    });
+</script>

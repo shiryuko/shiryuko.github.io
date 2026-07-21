@@ -19,5 +19,7 @@ const { project } = Astro.props;
 ---
 
 <Layout title={`${project.title} | ${site.title}`} description={project.summary} type="article" image={project.coverImage}>
-	<ProjectDetail project={project} />
+	<main>
+		<ProjectDetail project={project} />
+	</main>
 </Layout>

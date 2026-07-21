@@ -2,7 +2,7 @@ export interface AboutContent {
 	heading: string;
 	paragraphs: string[];
 	photoAlt: string;
-	photoPlaceholder: string;
+	photoUrl: string[];
 }
 
 export const about: AboutContent = {
@@ -12,6 +12,10 @@ export const about: AboutContent = {
 		'Passionate about both technology and digital art, I enjoy combining programming with creativity to create engaging user experiences.',
 		'My interests span frontend development, browser-based 3D graphics, game development, and digital design. I\'ve also gained experience leading development teams and delivering complex projects from concept to production.',
 	],
-	photoAlt: 'Profile photo placeholder',
-	photoPlaceholder: 'Your photo',
+	photoAlt: 'Profile photo',
+	photoUrl: [
+		'/images/me-bg.png',
+		'/images/me-eyes.png',
+		'/images/me-face.png',
+	]
 };
