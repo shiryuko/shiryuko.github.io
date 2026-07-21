@@ -32,39 +32,46 @@ const { content } = Astro.props;
 
 <script>
 	const eyes = document.getElementById("heroEyes");
-	const MAX_OFFSET = 10;
-	const DEAD_ZONE = 10;
+	const SCALE = 10;
+	const DEAD_ZONE = 35;
 
 	let currentX = 0;
 	let currentY = 0;
+	let targetX = 0;
+	let targetY = 0;
 
 	window.addEventListener("mousemove", (e) => {
 		const rect = eyes.getBoundingClientRect();
 
-		const imgCenterX = rect.left + rect.width / 2;
-		const imgCenterY = rect.top + rect.height * 0.8;
+		const imgPosCenterX = rect.left+(rect.width/2);
+		const imgPosCenterY = rect.top+(rect.height*0.85);
 
-		// Vector desde los ojos hasta el cursor
-		const dx = e.clientX - imgCenterX;
-		const dy = e.clientY - imgCenterY;
+		//Direction Vector [Eyes -> Mouse]
+		const vdx = e.clientX - imgPosCenterX;
+		const vdy = e.clientY - imgPosCenterY;
 
-		const distance = Math.sqrt(dx * dx + dy * dy);
+		const distance = Math.sqrt(vdx * vdx + vdy * vdy);
 
-		const nx = distance ? dx / distance : 0;
-		const ny = distance ? dy / distance : 0;
-
-		const offsetX = nx * MAX_OFFSET;
-		const offsetY = ny * MAX_OFFSET;
+		//Normalized & Scaled
+		targetX = (vdx/distance) * SCALE;
+		targetY = (vdy/distance) * SCALE;
 
 		if (distance < DEAD_ZONE) {
-			offsetX = 0;
-			offsetY = 0;
+			targetX = 0;
+			targetY = 0;
 		}
 
-		currentX += (offsetX - currentX) * 0.2;
-		currentY += (offsetY - currentY) * 0.2;
+    });
+
+	function animate() {
+		//Interpolate position
+		currentX += (targetX - currentX) * 0.2;
+		currentY += (targetY - currentY) * 0.2;
 
 		eyes.style.transform = `translate(${currentX}px, ${currentY}px)`;
+		
+		requestAnimationFrame(animate);
+	}
 
-    });
+	animate();
 </script>
