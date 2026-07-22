@@ -18,7 +18,7 @@ interface Props {
 const { project } = Astro.props;
 ---
 
-<Layout title={`${project.title} | ${site.title}`} description={project.summary} type="article" image={project.coverImage}>
+<Layout title={`${project.title} | ${site.title}`} description={project.summary} type="article" image={site.url+project.coverImage}>
 	<main>
 		<ProjectDetail project={project} />
 	</main>

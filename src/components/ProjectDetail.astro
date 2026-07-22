@@ -21,15 +21,6 @@ const { project } = Astro.props;
 		
 		<h1 class="text-4xl font-bold tracking-tight text-neutral-50">{project.title}</h1>
 
-		<ul class="m-0 flex list-none flex-wrap gap-2 p-0">
-			{
-				project.tags.map((tag) => (
-					<li class="rounded-full border border-neutral-700 px-3 py-1 text-xs font-medium text-neutral-400">
-						{tag}
-					</li>
-				))
-			}
-		</ul>
 	</header>
 
 	<div

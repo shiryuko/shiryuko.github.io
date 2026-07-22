@@ -122,6 +122,28 @@ export const projects: Project[] = [
 		],
 	},
 	{
+		slug: 'asset-digitization',
+		title: 'Asset Digitization',
+		summary:
+			'Digital Twin Application for terminal portuary logistic companies powered with real-world telemetry data.',
+		coverImage: '/images/projects/ad-banner.png',
+		category: 'professional',
+		tags: ['HTML/CSS','Javascript', 'Vue', 'Unity', 'Java', 'Spring', 'NodeJS', 'Docker', 'Ignition', 'Confluence', 'Jira'],
+		content:
+			'Asset Digitization is a **browser-based Digital Twin application** developed for **Maersk & APM Terminals**, powered by real-time telemetry data from multiple sources.\n\n The application provides tools for various departments across the terminal and is designed to improve **operational efficiency**, **reduce maintenance costs**, and **minimize human error**.',
+		links: [],
+		myWork: [
+			'Collaborated in the **development of frontend features** using **HTML**, **CSS**, and **Unity (WebGL)**.',
+			'**Fixed bugs** across both the frontend and backend using **Java** and **Spring**.',
+			'**Deployed application releases** using internal deployment tools.',
+			'Participated in **client meetings** to gather requirements and provide project updates.',
+			'Managed and resolved **support tickets**.',
+			'**Mentored** application users and team members.',
+			'Prepared **project budgets**, **functionality and support documentation**, and **leaded the teams** to ensure coordination and alignment.'
+		],
+		gallery: [],
+	},
+	{
 		slug: 'frostyland',
 		title: 'Frostyland',
 		summary:
