@@ -32,6 +32,8 @@ const { content } = Astro.props;
 
 <script>
 	const eyes = document.getElementById("heroEyes");
+	if (!eyes) throw new Error("AboutSection: #heroEyes not found");
+
 	const SCALE = 10;
 	const DEAD_ZONE = 35;
 	const SPEED = 20;
@@ -40,9 +42,9 @@ const { content } = Astro.props;
 	let currentY = 0;
 	let targetX = 0;
 	let targetY = 0;
-	let lastTime = performance.now();
+	let lastTime = 0;
 
-	window.addEventListener("mousemove", (e) => {
+	const onMouseMove = (e: MouseEvent) => {
 		const rect = eyes.getBoundingClientRect();
 
 		const imgPosCenterX = rect.left+(rect.width/2);
@@ -62,23 +64,25 @@ const { content } = Astro.props;
 			targetX = 0;
 			targetY = 0;
 		}
+	};
 
-    });
-
-	function animate(now) {
-		const delta = (now - lastTime)/1000;
+	const animate = (now: DOMHighResTimeStamp) => {
+		const delta = lastTime === 0 ? 0 : (now - lastTime)/1000;
 		lastTime = now;
 
 		const a = 1 - Math.exp(-SPEED * delta);
-		
+
 		//Interpolate position
 		currentX += (targetX - currentX) * a;
 		currentY += (targetY - currentY) * a;
 
 		eyes.style.transform = `translate(${currentX}px, ${currentY}px)`;
-		
+
+		requestAnimationFrame(animate);
+	};
+
+	if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+		window.addEventListener("mousemove", onMouseMove);
 		requestAnimationFrame(animate);
 	}
-
-	animate(lastTime);
 </script>
