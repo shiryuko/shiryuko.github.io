@@ -34,11 +34,13 @@ const { content } = Astro.props;
 	const eyes = document.getElementById("heroEyes");
 	const SCALE = 10;
 	const DEAD_ZONE = 35;
+	const SPEED = 20;
 
 	let currentX = 0;
 	let currentY = 0;
 	let targetX = 0;
 	let targetY = 0;
+	let lastTime = performance.now();
 
 	window.addEventListener("mousemove", (e) => {
 		const rect = eyes.getBoundingClientRect();
@@ -56,22 +58,27 @@ const { content } = Astro.props;
 		targetX = (vdx/distance) * SCALE;
 		targetY = (vdy/distance) * SCALE;
 
-		if (distance < DEAD_ZONE) {
+		if (distance < DEAD_ZONE || distance === 0) {
 			targetX = 0;
 			targetY = 0;
 		}
 
     });
 
-	function animate() {
+	function animate(now) {
+		const delta = (now - lastTime)/1000;
+		lastTime = now;
+
+		const a = 1 - Math.exp(-SPEED * delta);
+		
 		//Interpolate position
-		currentX += (targetX - currentX) * 0.2;
-		currentY += (targetY - currentY) * 0.2;
+		currentX += (targetX - currentX) * a;
+		currentY += (targetY - currentY) * a;
 
 		eyes.style.transform = `translate(${currentX}px, ${currentY}px)`;
 		
 		requestAnimationFrame(animate);
 	}
 
-	animate();
+	animate(lastTime);
 </script>

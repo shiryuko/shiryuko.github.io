@@ -7,7 +7,7 @@ export interface ExperienceItem {
 
 export const experience: ExperienceItem[] = [
 	{
-		name: 'Systems, Servers & Solutions - Project manager',
+		name: 'Systems, Servers & Solutions - Technical Project Manager',
 		duration: 'Jan 2023 — Present',
 		description:
 			'IT Consulting company developing real-time 3D browser-based digital twin applications for terminal logistics companies, powered by live telemetry data to improve real-world operational efficiency.',
