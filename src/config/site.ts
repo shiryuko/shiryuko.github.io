@@ -2,7 +2,6 @@ export const site = {
 	name: 'shiryuko',
 	title: 'Carla\'s portfolio',
 	description: 'My works as a Multimedia Engineer.',
-	url: 'https://shiryuko.github.io',
 	image: '/images/sharecard.png',
 	nav: [
 		{ label: 'About', href: '/#about' },
